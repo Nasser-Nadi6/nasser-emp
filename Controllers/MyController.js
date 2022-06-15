@@ -18,7 +18,6 @@ class MyController extends BaseController {
 
   @method("GET")
   @path("/myPath")
-  @name("firstMethod")
   firstMethod() {
     // this.todoService.add();
   }

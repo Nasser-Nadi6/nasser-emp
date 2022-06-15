@@ -82,16 +82,17 @@ function routeIsValid(validRoutesAndMethods, incomingRequestUrlandMethod) {
     return result;
 }
 
-function specifyDependencyRelatedToTheController(routes, servicesInstances,incomingRequestUrlandMethod) {
-    const instance=[]
-    const mainAddress=incomingRequestUrlandMethod.split("/")[1]
-    let relatedDependency=undefined
-    routes.forEach((route)=>{
-        if(route[0].prefix.split("/")[1]===mainAddress) relatedDependency=route[0].dependency
+function specifyDependencyRelatedToTheController(routes, servicesInstances, incomingRequestUrlandMethod) {
+    const instance = []
+    const mainAddress = incomingRequestUrlandMethod.split("/")[1]
+    let relatedDependency = undefined
+    routes.forEach((route) => {
+        if (route[0].prefix.split("/")[1] === mainAddress) relatedDependency = route[0].dependency
     })
-    relatedDependency.forEach((dep)=>{
-        const result=servicesInstances.find((service)=>{
-            return service.name===dep
+
+    relatedDependency?.forEach((dep) => {
+        const result = servicesInstances.find((service) => {
+            return service.name === dep
         })
         instance.push(result)
     })

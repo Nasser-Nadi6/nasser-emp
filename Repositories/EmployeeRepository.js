@@ -1,3 +1,6 @@
+const {injectToDI}=require('../decorators/decorators')
+
+@injectToDI('EmployeeRepository')
 class EmployeeRepository {
   redis;
   static instance;

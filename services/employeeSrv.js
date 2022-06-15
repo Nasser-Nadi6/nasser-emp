@@ -1,9 +1,10 @@
 const ParentRepository = require("../Repositories/ParentRepository");
 const EmployeeRepository = require("../Repositories/EmployeeRepository");
 const { isEmpty, userExist } = require("../utility/utility");
-const {injectToDI}=require("../decorators/decorators")
+const {injectToDI,useDependency}=require("../decorators/decorators")
 
 @injectToDI('EmployeeSrv')
+@useDependency('EmployeeRepository')
 class EmployeeSrv {
   static instance
 
